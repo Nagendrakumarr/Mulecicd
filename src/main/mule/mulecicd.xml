@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7554faad-3b9f-4fc1-8c8a-4deda66e952e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mulecicdFlow" doc:id="ba547cec-d73c-4c25-9793-70830f49854e" >
+		<http:listener doc:name="Listener" doc:id="203e7748-e4ee-49ef-a8ad-1fd56028f9a6" config-ref="HTTP_Listener_config" path="/path"/>
+		<set-payload value="Application hit successful!" doc:name="Set Payload" doc:id="3a56a01c-bd76-47b2-95ee-84677aa0dc6e" />
+	</flow>
+</mule>
